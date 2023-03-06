@@ -1,10 +1,10 @@
 import requests
+import creds
 
 def sendImg(image, id):
 
-    apiToken = 'API_TOKEN'
     chatID = id
-    apiURL = f'https://api.telegram.org/bot{apiToken}/sendPhoto'
+    apiURL = f'https://api.telegram.org/bot{creds.apiToken}/sendPhoto'
     params = {'chat_id': chatID}
     files = {'photo': image}
 
@@ -16,5 +16,5 @@ def sendImg(image, id):
 
 def main(id):
     #open image file
-    image = open('Attendance.png','rb')
+    image = open('Visitor.png','rb')
     sendImg(image,id)

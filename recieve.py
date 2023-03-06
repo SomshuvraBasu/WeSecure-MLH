@@ -1,8 +1,8 @@
 import requests
 import random
+import creds
 
-apiToken = 'API_TOKEN'
-url = f"https://api.telegram.org/bot{apiToken}/getUpdates"
+url = f"https://api.telegram.org/bot{creds.apiToken}/getUpdates"
 response = requests.get(url)
 data=response.json()
 id_no = []

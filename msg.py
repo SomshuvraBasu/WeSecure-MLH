@@ -1,9 +1,9 @@
 import requests
+import creds
 
-apiToken = 'API_TOKEN'
-apiURL = f'https://api.telegram.org/bot{apiToken}/sendMessage'
-StreamLink = "Stream Link: STREAM_LINK"
-DeviceLocation = "Infosys Campus, Chandigarh"
+apiURL = f'https://api.telegram.org/bot{creds.apiToken}/sendMessage'
+StreamLink = f"Video Stream Link:{creds.StreamLink}"
+DeviceLocation = f"Device Location:{creds.device_location}"
 
 def send_Img(image, apiURL, chatID):
     params = {'chat_id': chatID}
@@ -25,7 +25,7 @@ def send_Text(msg, apiURL, chatID):
 
 
 def fam_Msg(state, name=None, img=None):
-    chatID = 'FAMILY_CHAT_ID'
+    chatID = creds.family_chatID
     if state == 1:
         msg = f"Familiar face detected--{name}--logged ✅✅ "
         send_Text(msg, apiURL, chatID)
@@ -69,7 +69,7 @@ def fam_Msg(state, name=None, img=None):
 
 
 def lea_Msg(state, name, img):
-    chatID = 'LEA_CHAT_ID'
+    chatID = creds.lea_chatID
     if state == 1:
         pass
     elif state == 2:
@@ -87,7 +87,7 @@ def lea_Msg(state, name, img):
         pass
 
 def volunteer_Msg(state, name, img):
-    chatID = 'VOLUNTEER_CHAT_ID'
+    chatID = creds.volunteer_chatID
     if state == 1:
         pass
     elif state == 2:

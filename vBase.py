@@ -4,6 +4,7 @@ import face_recognition
 import os
 from datetime import datetime
 from csv import writer
+import creds
 
 ###To Use screen capture
 # from PIL import ImageGrab
@@ -69,20 +70,20 @@ def uLog(name):
 def notify1(mName):
     if(ctr>0):
         msg.send(1, mName)
-        imageBot.main('FAMILY_CHAT_ID')
+        imageBot.main(creds.family_chatID)
 
 def notify2(mName, imgCap):
     if(ctr>0):
         msg.send(2, mName, imgCap)
-        imageBot.main('LEA_CHAT_ID')
-        imageBot.main('FAMILY_CHAT_ID')
-        imageBot.main('VOLUNTEER_CHAT_ID')
+        imageBot.main(creds.lea_chatID)
+        imageBot.main(creds.family_chatID)
+        imageBot.main(creds.volunteer_chatID)
 
 def notify3():
     if(ctr>0):
         msg.send(3)
-        imageBot.main('FAMILY_CHAT_ID')
-        imageBot.main('VOLUNTEER_CHAT_ID')
+        imageBot.main(creds.family_chatID)
+        imageBot.main(creds.volunteer_chatID)
         
 #### FOR CAPTURING SCREEN RATHER THAN WEBCAM
 # def captureScreen(bbox=(300,300,690+300,530+300)):
